@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imersão Dev </title>
+    <link rel="stylesheet" href="estilos/style.css">
+</head>
+<body>
+    <h1>Tabela de classificação</h1>
+  <br>
+  <input type="text" id="adcJogador" placeholder="Adicionar Novo Jogador (a)"><br><br>
+  <button type="submit" onclick="adicionarJogador()">Adicionar</button>
+  <button type="submit" onclick="zerarPontos()">Zerar Pontos</button>
+  <br><br>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Vitórias</th>
+        <th>Empates</th>
+        <th>Derrotas</th>
+        <th>Pontos</th>
+        <th colspan="3">Ações</th>
+      </tr>
+    </thead>
+    <tbody id="tabelaJogadores">
+      <script>
+        var bruno = { 
+          nome: "Bruno", 
+          vitorias: 0, 
+          empates: 0, 
+          derrotas: 0, 
+          pontos: 0 
+        };
+      /* var myllena = {
+          nome: "Myllena",
+          vitorias: 0,
+          empates: 0,
+          derrotas: 0,
+};
+       var kyara = {
+         nome: "Kyara",
+         vitorias: 0,
+         empates: 0,
+         derrotas: 0,
+         pontos: 0
+};*/
+
+function calculaPontos(jogador) {
+  var pontos =
+    jogador.vitorias * 3 + jogador.empates + jogador.empates - jogador.derrotas;
+  return pontos;
+}
+bruno.pontos = calculaPontos(bruno);
+/*alinne.pontos = calculaPontos(alinne);
+waninne.pontos = calculaPontos(waninne);*/
+
+var jogadores = [bruno];
+
+function exibirJogadores(jogadores) {
+  var elemento = "";
+  for (var i = 0; i < jogadores.length; i++) {
+    elemento += "<tr><td>" + jogadores[i].nome + "</td>";
+    elemento += "<td>" + jogadores[i].vitorias + "</td>";
+    elemento += "<td>" + jogadores[i].empates + "</td>";
+    elemento += "<td>" + jogadores[i].derrotas + "</td>";
+    elemento += "<td>" + jogadores[i].pontos + "</td>";
+    elemento +=
+      "<td><button onClick='adicionarVitoria(" + i + ")'>Vitória</button></td>";
+    elemento +=
+      "<td><button onClick='adicionarEmpate(" + i + ")'>Empate</button></td>";
+    elemento +=
+      "<td><button onClick='adicionarDerrota(" + i + ")'>Derrota</button></td>";
+    elemento += "</tr>";
+  }
+  var tabelasJogadores = document.getElementById("tabelaJogadores");
+  tabelasJogadores.innerHTML = elemento;
+}
+exibirJogadores(jogadores);
+
+function zerarPontos() {
+  for (var i = 0; i < jogadores.length; i++) {
+    var jogador = jogadores[i];
+    jogador.vitorias = 0;
+    jogador.empates = 0;
+    jogador.derrotas = 0;
+    jogador.pontos = calculaPontos(jogador);
+  }
+  exibirJogadores(jogadores);
+}
+
+function adicionarJogador() {
+  var jogadorNome = document.getElementById("adcJogador").value;
+  var lista = {
+    nome: jogadorNome,
+    vitorias: 0,
+    empates: 0,
+    derrotas: 0,
+    pontos: 0
+  };
+  jogadores.push(lista);
+  exibirJogadores(jogadores);
+  console.log(jogadorNome);
+}
+function adicionarVitoria(i) {
+  var jogador = jogadores[i];
+  jogador.vitorias++;
+  jogador.pontos = calculaPontos(jogador);
+  exibirJogadores(jogadores);
+}
+function adicionarEmpate(i) {
+  var jogador = jogadores[i];
+  jogador.empates++;
+  jogador.pontos = calculaPontos(jogador);
+  exibirJogadores(jogadores);
+}
+
+function adicionarDerrota(i) {
+  var jogador = jogadores[i];
+  jogador.derrotas++;
+ /* jogador.pontos = calculaPontos(jogador);*/
+  exibirJogadores(jogadores);
+}
+
+      </script>
+</body>
+</html>

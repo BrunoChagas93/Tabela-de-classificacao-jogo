@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
+* {
+  text-align: center;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat", monospace;
+  min-height: 500px;
+  background-image: url("https://cdn.wallpapersafari.com/82/68/lpNV5d.jpg");
+  background-color: #010101;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+table {
+  background: rgba(255, 255, 255, 0.322);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.966);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-family: "Montserrat";
+  color: #fafafa;
+  text-align: center;
+  margin-top: 30px;
+}
+
+th,
+tr,
+td {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 1rem;
+  padding: 10px;
+}
+
+button {
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  background: #fff;
+  font-family: "Montserrat";
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: #e4f8f0;
+}
+
+input {
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #fff;
+  border: none;
+  background: rgba(32, 32, 32, 0.87);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+input:focus {
+  color: #010101;
+  outline: none;
+  background-color: #ffffff;
+}
